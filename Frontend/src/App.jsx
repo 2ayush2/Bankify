@@ -1,25 +1,32 @@
 import React from "react";
-import Sidebar from "./components/Sidebar";
-import Navbar from "./components/Navbar";
-import { sidebarMenu, navbarMenu } from "./data/SidebarData";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Navbar from "./components/Navbar/Navbar";
+import { sidebarMenu } from "./utils/constants";
+import AppRouter from "../routes/AppRouter";
+import { routes } from "../routes/routes";
+import { useLocation } from "react-router-dom";
+
 const App = () => {
-  const handleLogout = () => {
-    console.log("Logging out...");
-    // Handle logout logic, e.g., clearing auth tokens.
-  };
+  const location = useLocation();
+
+  // Find the current route's configuration
+  const currentRoute = routes.find((route) => route.path === location.pathname);
+
+  // Determine if Sidebar and Navbar should be hidden
+  const hideSidebarAndNavbar = currentRoute?.hideSidebarAndNavbar ?? false;
 
   return (
-    <div className="flex">
-      {/* Sidebar */}
-      <Sidebar menuItems={sidebarMenu} />
-
-      {/* Main Content Area */}
+    <div className={`flex ${hideSidebarAndNavbar ? "bg-gray-50" : ""}`}>
+      {/* Sidebar (only render if not hidden) */}
+      {!hideSidebarAndNavbar && <Sidebar menuItems={sidebarMenu} />}
+      
       <div className="flex-grow flex flex-col">
-        <Navbar navItems={navbarMenu} onLogout={handleLogout} />
-        <div className="p-6">
-          <h1 className="text-2xl font-bold">Welcome to the Dashboard</h1>
+        {/* Navbar (only render if not hidden) */}
+        {!hideSidebarAndNavbar && <Navbar />}
+        
+        {/* Main Content */}
+        <div className="">
+          <AppRouter />
         </div>
       </div>
     </div>
