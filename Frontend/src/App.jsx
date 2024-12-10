@@ -5,6 +5,8 @@ import { sidebarMenu } from "./utils/constants";
 import AppRouter from "../routes/AppRouter";
 import { routes } from "../routes/routes";
 import { useLocation } from "react-router-dom";
+import DynamicTable from "./components/Form/DescriptionOfGoods";
+import LightweightTable from "./components/Form/DescriptionOfGoods";
 
 const App = () => {
   const location = useLocation();

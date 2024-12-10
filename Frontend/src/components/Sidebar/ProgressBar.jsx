@@ -71,10 +71,10 @@ const ProgressBar = ({ steps, currentStep, onStepClick, stepCompletion }) => {
       {/* Desktop: Vertical Progress Bar */}
       <div className="hidden md:block">
         <div className="logo">
-          <img className="w-30 h-[50px] mx-auto mb-4" src={logo} alt="" />
+          <img className="w-30 h-[48px] mx-auto mb-4" src={logo} alt="" />
         </div>
         <div className="title pb-4">
-        <h3 className="text-lg font-bold font-heading pb-2" >{steps[currentStep].title}</h3>
+        <h3 className="text-lg font-bold font- pb-1" >{steps[currentStep].title}</h3>
 
         <p className="text-sm text-gray-600 font-body" >{steps[currentStep].description} </p>
         </div>
@@ -116,7 +116,7 @@ const ProgressBar = ({ steps, currentStep, onStepClick, stepCompletion }) => {
                 }`}
               >
                 {stepCompletion[index] ? (
-                  <i className="bi bi-check text-xs"></i>
+                  <i className="bi bi-check text-lg"></i>
                 ) : index === currentStep ? (
                   <div className="w-3 h-3 bg-green-600 rounded-full"></div>
                 ) : null}

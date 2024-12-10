@@ -4,7 +4,7 @@ import { MapPin, Calendar } from "phosphor-react"; // Importing Phosphor Icons
 const StickyHeader = ({ firstStepData }) => {
   return (
     <div className="bg-[#EFFFF67A] py-9 absolute left-0 p-4 rounded-md pb-32 w-full top-0 z-50">
-      <div className="flex justify-between items-center px-40 ">
+      <div className="flex justify-between items-center px-[64px] ">
         {/* Branch Section */}
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
