@@ -20,6 +20,7 @@ const LCAddRequest = () => {
       }, {});
     })
   );
+  console.log(formData);
 
   const [stepCompletion, setStepCompletion] = useState(
     lcFormSteps.map(() => false) // Initialize all steps as incomplete

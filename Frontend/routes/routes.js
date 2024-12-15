@@ -20,7 +20,10 @@ export const routes = [
     path: "/addrequest",
     component: ApplicationForm,
     title: "Add Request",
-    hideSidebarAndNavbar: true, // Sidebar and Navbar should be shown
+    hideSidebar: false, // Sidebar is shown
+    collapsibleSidebar: true, // Sidebar is collapsible
+    hideNavbar: true, // Navbar is shown
+    collapsibleNavbar: true, // Navbar is collapsible
   }
   /** */
   /**

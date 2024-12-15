@@ -70,7 +70,29 @@ sql.connect(config)
           res.status(500).json({ message: "Failed to save form data", error: error.message });
         }
       });
-      
+      //API ENdpoint of thr database api
+
+   // API Endpoint to Retrieve All Data from FormSubmissions
+app.get("/api/formData", async (req, res) => {
+  try {
+    // Create a new SQL request object
+    const result = await sql.query("SELECT * FROM FormSubmissions");
+
+    // Send the result back as JSON
+    res.status(200).json({
+      success: true,
+      data: result.recordset, // Return only the rows from the result
+    });
+  } catch (error) {
+    console.error("Error retrieving data from FormSubmissions:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to retrieve data from FormSubmissions.",
+      error: error.message,
+    });
+  }
+});
+
 
     // Test Route to Verify Server is Running
     app.get("/", (req, res) => {
